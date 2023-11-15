@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb7boe6udsli5"]
+[gd_scene load_steps=8 format=3 uid="uid://bb7boe6udsli5"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_26ve0"]
 [ext_resource type="Texture2D" uid="uid://briecdbugyd0y" path="res://assets/temp_cat.png" id="1_qtm7w"]
+[ext_resource type="AudioStream" uid="uid://bvhd6d2f5hg45" path="res://assets/temp_pickup.ogg" id="3_relq5"]
+[ext_resource type="AudioStream" uid="uid://5o6f1v4iqp3y" path="res://assets/temp_jump.ogg" id="4_hmfgw"]
+[ext_resource type="AudioStream" uid="uid://ilolntn8k2sl" path="res://assets/temp_conflict.ogg" id="5_otmb0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccp60"]
 animations = [{
@@ -27,4 +30,17 @@ sprite_frames = SubResource("SpriteFrames_ccp60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n4e1g")
 
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_relq5")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hmfgw")
+
+[node name="CollisionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_otmb0")
+
+[node name="ParalyzeTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="ParalyzeTimer" to="." method="_on_paralyze_timer_timeout"]

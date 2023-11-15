@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bld6g607ryhgx"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_gnv25"]
+[ext_resource type="Texture2D" uid="uid://biap4ukrqthuu" path="res://assets/temp_start.png" id="2_pua4a"]
+[ext_resource type="Texture2D" uid="uid://d0lbqapvr5h81" path="res://assets/temp_start_pressed.png" id="3_xryix"]
+[ext_resource type="Texture2D" uid="uid://ci67yvkiwdbme" path="res://assets/temp_start_hover.png" id="4_xh6pe"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_gnv25")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Time" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "30"
+
+[node name="Percent" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "50 %"
+horizontal_alignment = 2
+
+[node name="StartButton" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -125.0
+offset_right = 113.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_pua4a")
+texture_pressed = ExtResource("3_xryix")
+texture_hover = ExtResource("4_xh6pe")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
