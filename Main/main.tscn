@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpk1n8bdeeqgr"]
+
+[ext_resource type="Texture2D" uid="uid://qcpcqtl8bcpe" path="res://assets/temp_bg.png" id="1_owei5"]
+[ext_resource type="Script" path="res://Main/main.gd" id="1_xd5l2"]
+[ext_resource type="PackedScene" uid="uid://cneax31ffx8y8" path="res://Particle/particle.tscn" id="2_sgb2v"]
+[ext_resource type="PackedScene" uid="uid://bb7boe6udsli5" path="res://Player/player.tscn" id="2_v3rks"]
+[ext_resource type="PackedScene" uid="uid://cl34ejcm5s4yo" path="res://Ghost/ghost.tscn" id="4_gn0pu"]
+[ext_resource type="PackedScene" uid="uid://cfy6wcvf8wcwv" path="res://Box/box.tscn" id="5_rtns4"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_xd5l2")
+particle_scene = ExtResource("2_sgb2v")
+box_scene = ExtResource("5_rtns4")
+ghost_scene = ExtResource("4_gn0pu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("1_owei5")
+
+[node name="Player" parent="." instance=ExtResource("2_v3rks")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

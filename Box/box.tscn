@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfy6wcvf8wcwv"]
+
+[ext_resource type="Texture2D" uid="uid://bc1ucway1yhd8" path="res://assets/temp_box.png" id="1_ox60s"]
+[ext_resource type="Script" path="res://Box/box.gd" id="1_qv3aa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cqsi8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ox60s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddela"]
+size = Vector2(42, 46)
+
+[node name="Box" type="Area2D" groups=["boxes"]]
+script = ExtResource("1_qv3aa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cqsi8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ddela")

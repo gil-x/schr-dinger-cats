@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1000"
+   height="1000"
+   viewBox="0 0 264.58333 264.58333"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="temp.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="4.086974"
+     inkscape:cx="331.66347"
+     inkscape:cy="67.286946"
+     inkscape:window-width="2560"
+     inkscape:window-height="1052"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch5">
+      <stop
+         style="stop-color:#646464;stop-opacity:1;"
+         offset="0"
+         id="stop5" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="1"
+         id="stop7" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#swatch5"
+       id="radialGradient5"
+       cx="66.145828"
+       cy="97.895828"
+       fx="66.145828"
+       fy="97.895828"
+       r="66.145836"
+       gradientTransform="matrix(1.4102732,0,7.2782821e-8,1.465769,-27.137871,-45.596826)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1-5-2"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;paint-order:markers fill stroke"
+       d="M 55.589303,0.94132694 H 68.818468 V 7.5559084 H 55.589303 Z" />
+    <g
+       id="g4"
+       inkscape:export-filename="temp_cat.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         id="rect1"
+         style="fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;paint-order:markers fill stroke;fill:#000000"
+         d="M 0 0 L 0 6.6145833 L 0 26.458333 L 26.458333 26.458333 L 26.458333 6.6145833 L 26.458333 0 L 13.229167 6.6145833 L 0 0 z " />
+      <g
+         id="g3"
+         transform="translate(1.3229162,-6.1246877)">
+        <g
+           id="g1">
+          <path
+             id="path1"
+             style="fill:#ffcc00;fill-opacity:0.998601;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+             d="M 5.2916674,18.62737 C 3.1086675,18.627388 1.0915003,19.635972 5e-7,21.273203 1.0915,22.910435 3.1086672,23.919019 5.2916674,23.919037 7.4746671,23.919018 9.4918337,22.910434 10.583333,21.273203 9.4918334,19.635972 7.4746669,18.627389 5.2916674,18.62737 Z"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             id="path1-6-9"
+             style="fill:#000000;fill-opacity:0.998601;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+             d="M 4.6302087,20.39543 A 1.3229157,3.0551792 0 0 0 5.2916667,23.041263 1.3229157,3.0551792 0 0 0 5.9531247,20.39543 1.3229157,3.0551792 0 0 0 5.2916667,17.749597 1.3229157,3.0551792 0 0 0 4.6302087,20.39543 Z"
+             inkscape:transform-center-x="-0.034777174"
+             inkscape:transform-center-y="-0.030822785" />
+        </g>
+        <g
+           id="g2"
+           transform="translate(13.229167)">
+          <path
+             id="path1-7"
+             style="fill:#ffcc00;fill-opacity:0.998601;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+             d="M 5.2916674,18.62737 C 3.1086675,18.627388 1.0915003,19.635972 5e-7,21.273203 1.0915,22.910435 3.1086672,23.919019 5.2916674,23.919037 7.4746671,23.919018 9.4918337,22.910434 10.583333,21.273203 9.4918334,19.635972 7.4746669,18.627389 5.2916674,18.62737 Z"
+             sodipodi:nodetypes="ccccc" />
+          <path
+             id="path1-6-9-5"
+             style="fill:#000000;fill-opacity:0.998601;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+             d="M 4.6302087,20.39543 A 1.3229157,3.0551792 0 0 0 5.2916667,23.041263 1.3229157,3.0551792 0 0 0 5.9531247,20.39543 1.3229157,3.0551792 0 0 0 5.2916667,17.749597 1.3229157,3.0551792 0 0 0 4.6302087,20.39543 Z"
+             inkscape:transform-center-x="-0.034777174"
+             inkscape:transform-center-y="-0.030822785" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g9"
+       inkscape:export-filename="temp_ghost.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         id="rect1-5"
+         style="fill:#ffffff;fill-opacity:0.50421363;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;paint-order:markers fill stroke"
+         d="M 80.90621,0 V 6.6145833 26.458333 H 107.36454 V 6.6145833 0 L 94.135377,6.6145833 Z" />
+      <path
+         id="path1-3"
+         style="fill:#66ff00;fill-opacity:0.5;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         d="M 87.520793,12.502682 C 85.337793,12.5027 83.320626,13.511284 82.229126,15.148515 83.320626,16.785747 85.337793,17.794331 87.520793,17.794349 89.703793,17.79433 91.72096,16.785746 92.812459,15.148515 91.720959,13.511284 89.703793,12.502701 87.520793,12.502682 Z"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         id="path1-6-9-7"
+         style="fill:#f2f2f2;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         d="M 86.859335,15.013132 A 1.3229157,2.197932 0 0 0 87.520793,16.916575 1.3229157,2.197932 0 0 0 88.182251,15.013132 1.3229157,2.197932 0 0 0 87.520793,13.109688 1.3229157,2.197932 0 0 0 86.859335,15.013132 Z"
+         inkscape:transform-center-x="-0.034777174"
+         inkscape:transform-center-y="-0.022174275" />
+      <path
+         id="path1-7-5"
+         style="fill:#66ff00;fill-opacity:0.5;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         d="M 100.74996,12.502682 C 98.56696,12.5027 96.549793,13.511284 95.458293,15.148515 96.549793,16.785747 98.56696,17.794331 100.74996,17.794349 102.93296,17.79433 104.95013,16.785746 106.04163,15.148515 104.95013,13.511284 102.93296,12.502701 100.74996,12.502682 Z"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         id="path1-6-9-5-2"
+         style="fill:#f2f2f2;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         d="M 100.0885,15.013132 A 1.3229157,2.197932 0 0 0 100.74996,16.916575 1.3229157,2.197932 0 0 0 101.41142,15.013132 1.3229157,2.197932 0 0 0 100.74996,13.109688 1.3229157,2.197932 0 0 0 100.0885,15.013132 Z"
+         inkscape:transform-center-x="-0.034777174"
+         inkscape:transform-center-y="-0.022174275" />
+    </g>
+    <g
+       id="g5"
+       inkscape:export-filename="temp_particle.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <circle
+         style="fill:#44aa00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         id="path4"
+         cx="37.041668"
+         cy="13.229167"
+         r="2.6458333" />
+      <ellipse
+         style="fill:#55d400;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         id="path4-9"
+         cx="37.041668"
+         cy="13.229167"
+         rx="2.1166661"
+         ry="2.1166663" />
+      <circle
+         style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         id="path4-9-2"
+         cx="37.041668"
+         cy="13.229167"
+         r="0.79374951" />
+    </g>
+    <rect
+       style="fill:url(#radialGradient5);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+       id="rect5"
+       width="132.29167"
+       height="132.29166"
+       x="-5.5862629e-06"
+       y="31.75"
+       inkscape:export-filename="temp_bg.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g8"
+       inkscape:export-filename="temp_box.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         id="rect1-5-2-4"
+         style="fill:#333333;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;paint-order:markers fill stroke"
+         d="M 54.23959,16.336048 54.239756,26.919381 H 64.823089 L 66.146006,24.273548 V 13.690215 Z"
+         sodipodi:nodetypes="cccccc" />
+      <path
+         id="rect1-5-2-4-0"
+         style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;paint-order:markers fill stroke"
+         d="M 55.562606,13.690215 H 66.14583 L 64.822919,16.336048 H 54.23959 Z"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:12.3;-inkscape-stroke:none;paint-order:markers fill stroke"
+         d="M 66.145832,13.690215 66.14594,24.273548 64.822973,26.919381 64.822919,16.336048 Z"
+         id="path8"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+</svg>
