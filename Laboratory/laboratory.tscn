@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6731ay5kpkut"]
+
+[ext_resource type="Texture2D" uid="uid://cmwii3p3b5t7t" path="res://assets/temp_lab.png" id="1_uji41"]
+
+[node name="Laboratory" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uji41")

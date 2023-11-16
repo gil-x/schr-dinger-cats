@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl34ejcm5s4yo"]
+[gd_scene load_steps=6 format=3 uid="uid://cl34ejcm5s4yo"]
 
 [ext_resource type="Script" path="res://Ghost/ghost.gd" id="1_fremg"]
 [ext_resource type="Texture2D" uid="uid://mqaxcljddagb" path="res://assets/temp_ghost.png" id="1_lssrn"]
+[ext_resource type="Texture2D" uid="uid://briecdbugyd0y" path="res://assets/temp_cat.png" id="3_yoqgk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_icm3p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_lssrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yoqgk")
 }],
 "loop": true,
 "name": &"default",
@@ -15,14 +19,39 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi763"]
-size = Vector2(50, 50)
+size = Vector2(22, 16)
 
 [node name="Ghost" type="Area2D" groups=["ghosts"]]
 script = ExtResource("1_fremg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_icm3p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_yi763")
+
+[node name="Steps" type="Label" parent="."]
+offset_left = -12.0
+offset_top = 11.0
+offset_right = 28.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="StepCurrent" type="Label" parent="."]
+offset_left = -12.0
+offset_top = 22.0
+offset_right = 28.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 10
+text = "0"
+
+[node name="StepFrame" type="Label" parent="."]
+offset_left = -12.0
+offset_top = 33.0
+offset_right = 28.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 10
+text = "0"

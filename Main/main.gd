@@ -5,12 +5,12 @@ signal time_up
 @export var particle_scene : PackedScene
 @export var box_scene : PackedScene
 @export var ghost_scene : PackedScene
-@export var playtime = 30
+@export var playtime = 10
 
 var chance_to_survive = 50
 var screensize = Vector2.ZERO
-
-#var ghost_active = false
+var margin_w = 160
+var margin_h = 80
 
 func _ready():
 	screensize = get_viewport().get_visible_rect().size
@@ -37,33 +37,30 @@ func _on_collected():
 func spawn_particles(number):
 	for i in number:
 		var p = particle_scene.instantiate()
-		var margin = 50
-		add_child(p)
 		p.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
-		p.position.x = clamp(p.position.x, margin, screensize.x - margin)
-		p.position.y = clamp(p.position.y, margin, screensize.y - margin)
+		p.position.x = clamp(p.position.x, margin_w, screensize.x - margin_w)
+		p.position.y = clamp(p.position.y, margin_h, screensize.y - margin_h)
 		p.collected.connect(self._on_collected)
+		call_deferred("add_child", p)
 
 func spawn_box():
 	var b = box_scene.instantiate()
-	var margin = 50
-	add_child(b)
 	b.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
-	b.position.x = clamp(b.position.x, margin, screensize.x - margin)
-	b.position.y = clamp(b.position.y, margin, screensize.y - margin)
+	b.position.x = clamp(b.position.x, margin_w, screensize.x - margin_w)
+	b.position.y = clamp(b.position.y, margin_h, screensize.y - margin_h)
 	b.box_used.connect(self._on_box_used)
+	call_deferred("add_child", b)
 
 func spawn_ghost():
 	print("spawn ghost")
 	var g = ghost_scene.instantiate()
 	g.path = $Player.path.duplicate()
 	g.ghost_touched.connect(self._on_ghost_touched)
-	$Player.path = []
-	add_child(g)
-#	ghost_active = true
+	$Player.reset_path()
 	spawn_particles(3)
 	chance_to_survive += 5
 	$HUD.update_percent(chance_to_survive)
+	call_deferred("add_child", g)
 
 func _on_box_used():
 	spawn_ghost()
@@ -73,9 +70,9 @@ func _on_ghost_touched():
 	chance_to_survive -= 10
 	$HUD.update_percent(chance_to_survive)
 
-func _process(delta):
-	pass
-
+#func _process(delta):
+##	$EndgameMessage.text = str($Player.can_move)
+#	pass
 
 
 
@@ -97,10 +94,13 @@ func _on_hud_start_game():
 func _on_time_up():
 	get_tree().call_group("particles", "queue_free")
 	get_tree().call_group("ghosts", "queue_free")
+	$Player/ParalyzeTimer.stop()
 	$Player.can_move = false
 	$Music.stop()
 	if randi_range(0, 100) <= chance_to_survive:
 		$EndgameMessage.text = "You survived!"
+		print("$Player.can_move: %s" % $Player.can_move)
 	else:
 		$EndgameMessage.text = "You died..."
+		print("$Player.can_move: %s" % $Player.can_move)
 	$EndgameMessage.show()

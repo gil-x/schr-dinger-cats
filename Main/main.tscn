@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpk1n8bdeeqgr"]
+[gd_scene load_steps=10 format=3 uid="uid://dpk1n8bdeeqgr"]
 
 [ext_resource type="Texture2D" uid="uid://qcpcqtl8bcpe" path="res://assets/temp_bg.png" id="1_owei5"]
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xd5l2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfy6wcvf8wcwv" path="res://Box/box.tscn" id="5_rtns4"]
 [ext_resource type="PackedScene" uid="uid://bld6g607ryhgx" path="res://HUD/hud.tscn" id="7_1hmjg"]
 [ext_resource type="AudioStream" uid="uid://yaovftkxoacn" path="res://assets/temp_music.ogg" id="8_7gswy"]
+[ext_resource type="Texture2D" uid="uid://cmwii3p3b5t7t" path="res://assets/temp_lab.png" id="9_kfjyw"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xd5l2")
@@ -15,10 +16,24 @@ particle_scene = ExtResource("2_sgb2v")
 box_scene = ExtResource("5_rtns4")
 ghost_scene = ExtResource("4_gn0pu")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Lab" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_kfjyw")
+
+[node name="BoxBackground" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
