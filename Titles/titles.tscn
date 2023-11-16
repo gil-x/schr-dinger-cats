@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8kyq5h22yhi3"]
+
+[ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="1_l8dt4"]
+[ext_resource type="AudioStream" uid="uid://4x7tgixldiov" path="res://assets/temp_intro_music.ogg" id="2_if2gk"]
+
+[node name="Titles" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TitleShrodinger" type="Label" parent="."]
+offset_left = 129.0
+offset_top = 134.0
+offset_right = 511.0
+offset_bottom = 233.0
+theme_override_colors/font_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_fonts/font = ExtResource("1_l8dt4")
+theme_override_font_sizes/font_size = 64
+text = "Schrödinger's"
+uppercase = true
+metadata/_edit_group_ = true
+
+[node name="TitleCat" type="Label" parent="."]
+offset_left = 129.0
+offset_top = 225.0
+offset_right = 223.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.941176, 0.941176, 0.941176, 1)
+theme_override_fonts/font = ExtResource("1_l8dt4")
+theme_override_font_sizes/font_size = 64
+text = "Cat"
+uppercase = true
+metadata/_edit_group_ = true
+
+[node name="TitleCatS" type="Label" parent="."]
+offset_left = 221.0
+offset_top = 225.0
+offset_right = 266.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.980392, 0.380392, 0.286275, 1)
+theme_override_fonts/font = ExtResource("1_l8dt4")
+theme_override_font_sizes/font_size = 64
+text = "S"
+uppercase = true
+metadata/_edit_group_ = true
+
+[node name="MusicIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_if2gk")
+volume_db = -10.0
