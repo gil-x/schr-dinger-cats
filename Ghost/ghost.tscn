@@ -1,21 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl34ejcm5s4yo"]
+[gd_scene load_steps=5 format=3 uid="uid://cl34ejcm5s4yo"]
 
 [ext_resource type="Script" path="res://Ghost/ghost.gd" id="1_fremg"]
 [ext_resource type="Texture2D" uid="uid://mqaxcljddagb" path="res://assets/temp_ghost.png" id="1_lssrn"]
-[ext_resource type="Texture2D" uid="uid://briecdbugyd0y" path="res://assets/temp_cat.png" id="3_yoqgk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_icm3p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_lssrn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_yoqgk")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi763"]
@@ -27,6 +23,7 @@ script = ExtResource("1_fremg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_icm3p")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

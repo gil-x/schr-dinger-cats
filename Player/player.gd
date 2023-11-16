@@ -37,9 +37,9 @@ func _process(delta):
 		position += velocity * speed * delta
 		position.x = clamp(position.x, margin_w, screensize.x - margin_w)
 		position.y = clamp(position.y, margin_h, screensize.y - margin_h)
-		print("$Player.can_move: %s" % can_move)
 	if rec_path:
 		register_position()
+
 
 func _on_area_entered(area):
 	if area.is_in_group("particles"):
@@ -56,4 +56,3 @@ func _on_area_entered(area):
 
 func _on_paralyze_timer_timeout():
 	can_move = true
-	pass

@@ -16,13 +16,19 @@ func _ready():
 	screensize = get_viewport().get_visible_rect().size
 	randomize()
 	$Player.hide()
+#	$HUD.hide()
+#	intro()
+
+func intro():
+	$MusicIntro.play()
+	
 
 func setup():
 	spawn_particles(randi_range(1, 6))
 	$Player.show()
 	$Player.rec_path = true
 	$Player.can_move = true
-	$Music.play()
+	$MusicGame.play()
 
 func _on_collected():
 	print("collected")
@@ -96,11 +102,9 @@ func _on_time_up():
 	get_tree().call_group("ghosts", "queue_free")
 	$Player/ParalyzeTimer.stop()
 	$Player.can_move = false
-	$Music.stop()
+	$MusicGame.stop()
 	if randi_range(0, 100) <= chance_to_survive:
 		$EndgameMessage.text = "You survived!"
-		print("$Player.can_move: %s" % $Player.can_move)
 	else:
 		$EndgameMessage.text = "You died..."
-		print("$Player.can_move: %s" % $Player.can_move)
 	$EndgameMessage.show()

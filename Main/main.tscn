@@ -62,7 +62,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 48
 text = "Conclusion"
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="MusicGame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_7gswy")
 volume_db = -10.0
 
