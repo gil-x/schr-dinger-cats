@@ -13,22 +13,18 @@ func touched():
 	queue_free()
 
 func _process(delta):
-	
-	
 	$Steps.text = str(len(path))
 	if is_moving:
 		var step = path.pop_front()
 		if step["step"] < 20:
 			$CollisionShape2D.disabled = true
-#			var canvas = $AnimatedSprite2D.get_canvas_item()
-#			canvas.set_modulate(0, 0, 0, 0.1)
 			$AnimatedSprite2D.modulate = Color(255, 1, 1, 0.1)
- 
 		else:
 			$CollisionShape2D.disabled = false
-			$AnimatedSprite2D.modulate = Color(255, 1, 1, 1)
-#			$AnimatedSprite2D.modulate(0, 0, 0, 1)
+			$AnimatedSprite2D.modulate = Color(255, 1, 1, 0.5)
 		position = step["position"]
+		$AnimatedSprite2D.animation = step["animation"]
+		$AnimatedSprite2D.frame = step["frame"]
 		$StepCurrent.text = str(step["step"])
 		$StepFrame.text = str(step["frame"])
 		path.append(step)
@@ -36,3 +32,5 @@ func _process(delta):
 		
 	else:
 		is_moving = true
+
+

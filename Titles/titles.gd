@@ -5,12 +5,18 @@ signal titles_end
 var gwj_zap = false
 var title_zap = false
 
-func stop_music():
-	$MusicIntro/AnimationPlayer.play("fade_out")
+func hide_titles():
 	$TitleShrodinger/AnimationPlayer.play("fade_out")
 	$TitleCat/AnimationPlayer.play("fade_out")
 	$TitleCatS/AnimationPlayer.play("fade_out")
 	$Background.hide()
+
+func replay_music():
+	$MusicIntro.volume_db = 0
+	$MusicIntro.play()
+
+func stop_music():
+	$MusicIntro/AnimationPlayer.play("fade_out")
 
 func restart():
 	$Background.show()

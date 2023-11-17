@@ -32,7 +32,7 @@ func prepare_new_game():
 	$HUD.update_percent(chance_to_survive)
 	time_left = playtime
 	$HUD.update_time(time_left)
-	
+	$Titles.replay_music()
 	$Player.hide()
 	$Player.position = screensize / 2
 
@@ -43,6 +43,7 @@ func setup():
 	$BoxBackground/AnimationPlayer.play("grow_up")
 	$Player.grow()
 	$Player.show()
+	$Titles.stop_music()
 	# Defer 2 secs
 	await get_tree().create_timer(2).timeout
 	$Timer.start()
@@ -147,7 +148,7 @@ func _on_time_up():
 func call_hud():
 	$HUD.show()
 	$Lab/AnimationPlayer.play("fade_in")
-	$Titles.stop_music()
+	$Titles.hide_titles()
 	
 
 func _on_titles_titles_end():

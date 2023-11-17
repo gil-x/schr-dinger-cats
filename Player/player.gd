@@ -27,6 +27,7 @@ func register_position():
 		{
 			"position": position,
 			"step": path_steps,
+			"animation": $AnimatedSprite2D.animation,
 			"frame": $AnimatedSprite2D.frame,
 		}
 	)
@@ -53,9 +54,10 @@ func _process(delta):
 			$AnimatedSprite2D.animation = "back"
 		elif velocity.y > 0:
 			$AnimatedSprite2D.animation = "facing"
-		elif velocity.x != 0:
+		elif velocity.x > 0:
 			$AnimatedSprite2D.animation = "siding"
-			$AnimatedSprite2D.flip_h = velocity.x < 0
+		elif velocity.x < 0:
+			$AnimatedSprite2D.animation = "siding_left"
 		else:
 			$AnimatedSprite2D.animation = "idle"
 #		if velocity.x != 0:
