@@ -5,6 +5,12 @@ signal titles_end
 var gwj_zap = false
 var title_zap = false
 
+func hide_background():
+	$Background/AnimationPlayer.play("fade_out")
+	
+func show_background():
+	$Background.modulate = Color(0, 0, 0, 1)
+
 func hide_titles():
 	$TitleShrodinger/AnimationPlayer.play("fade_out")
 	$TitleCat/AnimationPlayer.play("fade_out")

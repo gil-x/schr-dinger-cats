@@ -3,7 +3,6 @@ extends CanvasLayer
 signal start_game
 
 func show_counters():
-	print("show_counters")
 	$MarginContainer.show()
 	$MarginContainer/AnimationPlayer.play("fade_in")
 

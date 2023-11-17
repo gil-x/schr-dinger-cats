@@ -158,8 +158,6 @@ particle_scene = ExtResource("2_sgb2v")
 box_scene = ExtResource("5_rtns4")
 ghost_scene = ExtResource("4_gn0pu")
 
-[node name="Titles" parent="." instance=ExtResource("10_eqayr")]
-
 [node name="Lab" type="TextureRect" parent="."]
 visible = false
 anchors_preset = 15
@@ -173,6 +171,8 @@ texture = ExtResource("9_kfjyw")
 libraries = {
 "": SubResource("AnimationLibrary_72bwp")
 }
+
+[node name="Titles" parent="." instance=ExtResource("10_eqayr")]
 
 [node name="BoxBackground" type="TextureRect" parent="."]
 anchors_preset = 8

@@ -2,14 +2,12 @@ extends Node
 
 signal time_up
 
-
 @export var particle_scene : PackedScene
 @export var box_scene : PackedScene
 @export var ghost_scene : PackedScene
 @export var playtime = 20
 
 var time_left = playtime
-
 var chance_to_survive = 50
 var screensize = Vector2.ZERO
 var margin_w = 160
@@ -44,6 +42,10 @@ func setup():
 	$Player.grow()
 	$Player.show()
 	$Titles.stop_music()
+	$EndgameMessage.hide()
+	# Defer 1 sec
+	await get_tree().create_timer(1).timeout
+	$Titles.hide_titles()
 	# Defer 2 secs
 	await get_tree().create_timer(2).timeout
 	$Timer.start()
@@ -52,7 +54,7 @@ func setup():
 	$Player.can_move = true
 	$MusicGame.play()
 #	$Titles.off()
-	$EndgameMessage.hide()
+	
 
 func _on_collected():
 #	print("collected")
@@ -148,7 +150,7 @@ func _on_time_up():
 func call_hud():
 	$HUD.show()
 	$Lab/AnimationPlayer.play("fade_in")
-	$Titles.hide_titles()
+	$Titles.hide_background()
 	
 
 func _on_titles_titles_end():
