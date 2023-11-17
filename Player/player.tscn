@@ -1,37 +1,175 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb7boe6udsli5"]
+[gd_scene load_steps=23 format=3 uid="uid://bb7boe6udsli5"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_26ve0"]
-[ext_resource type="Texture2D" uid="uid://briecdbugyd0y" path="res://assets/temp_cat.png" id="1_qtm7w"]
-[ext_resource type="Texture2D" uid="uid://bbl1i0esiefn0" path="res://assets/temp_cat2.png" id="3_5s6pe"]
+[ext_resource type="Texture2D" uid="uid://bnt5yalxnmek0" path="res://assets/run_back_1.png" id="2_cijrt"]
+[ext_resource type="Texture2D" uid="uid://dxrjjyw7f8xb6" path="res://assets/run_back_2.png" id="3_n7lav"]
 [ext_resource type="AudioStream" uid="uid://bvhd6d2f5hg45" path="res://assets/temp_pickup.ogg" id="3_relq5"]
 [ext_resource type="AudioStream" uid="uid://5o6f1v4iqp3y" path="res://assets/temp_jump.ogg" id="4_hmfgw"]
+[ext_resource type="Texture2D" uid="uid://qtrnellk8osf" path="res://assets/run_back_3.png" id="4_hv63e"]
+[ext_resource type="Texture2D" uid="uid://ea6neb77uqg0" path="res://assets/run_back_4.png" id="5_f2tfy"]
 [ext_resource type="AudioStream" uid="uid://ilolntn8k2sl" path="res://assets/temp_conflict.ogg" id="5_otmb0"]
+[ext_resource type="Texture2D" uid="uid://c4a2yi016deru" path="res://assets/run_face_1.png" id="6_oxw5g"]
+[ext_resource type="Texture2D" uid="uid://cvcugvtcljw7x" path="res://assets/run_face_2.png" id="7_rdiyc"]
+[ext_resource type="Texture2D" uid="uid://8aq21ov25hos" path="res://assets/run_face_3.png" id="8_41y2t"]
+[ext_resource type="Texture2D" uid="uid://b3lepo7ekylml" path="res://assets/run_face_4.png" id="9_4v1sx"]
+[ext_resource type="Texture2D" uid="uid://choxba82118ew" path="res://assets/run_side_1.png" id="10_2wldr"]
+[ext_resource type="Texture2D" uid="uid://s5ml0hxh8br5" path="res://assets/run_side_2.png" id="11_6dtns"]
+[ext_resource type="Texture2D" uid="uid://xney7je7pbrk" path="res://assets/run_side_3.png" id="12_j5oqr"]
+[ext_resource type="Texture2D" uid="uid://bojnq1e4nyrm7" path="res://assets/run_side_4.png" id="13_ts2ga"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ccp60"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_qtm7w")
+"texture": ExtResource("2_cijrt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5s6pe")
+"texture": ExtResource("3_n7lav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hv63e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f2tfy")
 }],
 "loop": true,
-"name": &"default",
-"speed": 4.0
+"name": &"back",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_oxw5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rdiyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_41y2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4v1sx")
+}],
+"loop": true,
+"name": &"facing",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_oxw5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4v1sx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_2wldr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6dtns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_j5oqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ts2ga")
+}],
+"loop": true,
+"name": &"siding",
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4e1g"]
-size = Vector2(24, 21)
+size = Vector2(30, 33)
+
+[sub_resource type="Animation" id="Animation_ijshc"]
+resource_name = "center"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1qyg3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7wqdg"]
+resource_name = "grow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yt2xq"]
+_data = {
+"RESET": SubResource("Animation_1qyg3"),
+"center": SubResource("Animation_ijshc"),
+"grow": SubResource("Animation_7wqdg")
+}
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_26ve0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ccp60")
-autoplay = "default"
-frame_progress = 0.256093
+animation = &"siding"
+autoplay = "idle"
+frame_progress = 0.958441
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
@@ -48,6 +186,11 @@ stream = ExtResource("5_otmb0")
 
 [node name="ParalyzeTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yt2xq")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ParalyzeTimer" to="." method="_on_paralyze_timer_timeout"]

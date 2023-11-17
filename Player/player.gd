@@ -31,6 +31,12 @@ func register_position():
 		}
 	)
 
+func back_to_center():
+	$AnimationPlayer.play("center")
+	
+func grow():
+	$AnimationPlayer.play("grow")
+
 func _ready():
 	screensize = get_viewport_rect().size
 	position = screensize / 2
@@ -43,6 +49,18 @@ func _process(delta):
 		position += velocity * speed * delta
 		position.x = clamp(position.x, margin_w, screensize.x - margin_w)
 		position.y = clamp(position.y, margin_h, screensize.y - margin_h)
+		if velocity.y < 0:
+			$AnimatedSprite2D.animation = "back"
+		elif velocity.y > 0:
+			$AnimatedSprite2D.animation = "facing"
+		elif velocity.x != 0:
+			$AnimatedSprite2D.animation = "siding"
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+		else:
+			$AnimatedSprite2D.animation = "idle"
+#		if velocity.x != 0:
+#			$AnimatedSprite2D.flip_h = velocity.x < 0
+		
 	if rec_path:
 		register_position()
 

@@ -2,10 +2,13 @@ extends Node
 
 signal time_up
 
+
 @export var particle_scene : PackedScene
 @export var box_scene : PackedScene
 @export var ghost_scene : PackedScene
 @export var playtime = 20
+
+var time_left = playtime
 
 var chance_to_survive = 50
 var screensize = Vector2.ZERO
@@ -27,8 +30,8 @@ func prepare_new_game():
 	$HUD/StartButton.show()
 	chance_to_survive = 50
 	$HUD.update_percent(chance_to_survive)
-	playtime = 10
-	$HUD.update_time(playtime)
+	time_left = playtime
+	$HUD.update_time(time_left)
 	
 	$Player.hide()
 	$Player.position = screensize / 2
@@ -38,6 +41,7 @@ func setup():
 	$HUD/StartButton.hide()
 	$BoxBackground.show()
 	$BoxBackground/AnimationPlayer.play("grow_up")
+	$Player.grow()
 	$Player.show()
 	# Defer 2 secs
 	await get_tree().create_timer(2).timeout
@@ -53,8 +57,8 @@ func _on_collected():
 #	print("collected")
 	$Timer.stop()
 	var current_time = int($HUD/MarginContainer/Time.text)
-	playtime = current_time + 1
-	$HUD.update_time(playtime)
+	time_left = current_time + 1
+	$HUD.update_time(time_left)
 	$Timer.start()
 	if get_tree().get_nodes_in_group("particles").size() == 1:
 		spawn_box()
@@ -102,11 +106,11 @@ func _on_ghost_touched():
 
 
 func _on_timer_timeout():
-	playtime -= 1
-	$HUD.update_time(playtime)
-	if playtime > 0:
+	time_left -= 1
+	$HUD.update_time(time_left)
+	if time_left > 0:
 		$Timer.start()
-		if playtime > 5:
+		if time_left > 5:
 			$Tick1.play()
 		else:
 			$Tick2.play()
@@ -130,6 +134,8 @@ func life_check():
 	prepare_new_game()
 
 func _on_time_up():
+	$BoxBackground/AnimationPlayer.play("grow_down")
+	$Player.back_to_center()
 	get_tree().call_group("particles", "queue_free")
 	get_tree().call_group("ghosts", "queue_free")
 	get_tree().call_group("boxes", "queue_free")
