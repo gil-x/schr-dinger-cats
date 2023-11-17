@@ -5,7 +5,7 @@ signal time_up
 @export var particle_scene : PackedScene
 @export var box_scene : PackedScene
 @export var ghost_scene : PackedScene
-@export var playtime = 10
+@export var playtime = 20
 
 var chance_to_survive = 50
 var screensize = Vector2.ZERO
@@ -16,22 +16,41 @@ func _ready():
 	screensize = get_viewport().get_visible_rect().size
 	randomize()
 	$Player.hide()
+	$BoxBackground.hide()
 #	$HUD.hide()
 #	intro()
 
 func intro():
 	$MusicIntro.play()
 	
+func prepare_new_game():
+	$HUD/StartButton.show()
+	chance_to_survive = 50
+	$HUD.update_percent(chance_to_survive)
+	playtime = 10
+	$HUD.update_time(playtime)
+	
+	$Player.hide()
+	$Player.position = screensize / 2
 
 func setup():
-	spawn_particles(randi_range(1, 6))
+	# Immediately
+	$HUD/StartButton.hide()
+	$BoxBackground.show()
+	$BoxBackground/AnimationPlayer.play("grow_up")
 	$Player.show()
+	# Defer 2 secs
+	await get_tree().create_timer(2).timeout
+	$Timer.start()
+	spawn_particles(randi_range(1, 6))
 	$Player.rec_path = true
 	$Player.can_move = true
 	$MusicGame.play()
+#	$Titles.off()
+	$EndgameMessage.hide()
 
 func _on_collected():
-	print("collected")
+#	print("collected")
 	$Timer.stop()
 	var current_time = int($HUD/MarginContainer/Time.text)
 	playtime = current_time + 1
@@ -58,7 +77,7 @@ func spawn_box():
 	call_deferred("add_child", b)
 
 func spawn_ghost():
-	print("spawn ghost")
+#	print("spawn ghost")
 	var g = ghost_scene.instantiate()
 	g.path = $Player.path.duplicate()
 	g.ghost_touched.connect(self._on_ghost_touched)
@@ -70,7 +89,7 @@ func spawn_ghost():
 
 func _on_box_used():
 	spawn_ghost()
-	print("box used")
+#	print("box used")
 
 func _on_ghost_touched():
 	chance_to_survive -= 10
@@ -87,24 +106,43 @@ func _on_timer_timeout():
 	$HUD.update_time(playtime)
 	if playtime > 0:
 		$Timer.start()
+		if playtime > 5:
+			$Tick1.play()
+		else:
+			$Tick2.play()
 	else:
 		emit_signal("time_up")
+		$Tick3.play()
 
 
 func _on_hud_start_game():
-	$Timer.start()
 	setup()
-	$HUD/StartButton.hide()
+	
 
+func life_check():
+	if randi_range(0, 100) <= chance_to_survive:
+		$EndgameMessage.text = "KITTY IS ALIVE!"
+	else:
+		$EndgameMessage.text = "KITTY IS DEAD..."
+	await get_tree().create_timer(2).timeout
+	$EndgameMessage.show()
+	await get_tree().create_timer(1).timeout
+	prepare_new_game()
 
 func _on_time_up():
 	get_tree().call_group("particles", "queue_free")
 	get_tree().call_group("ghosts", "queue_free")
+	get_tree().call_group("boxes", "queue_free")
 	$Player/ParalyzeTimer.stop()
 	$Player.can_move = false
 	$MusicGame.stop()
-	if randi_range(0, 100) <= chance_to_survive:
-		$EndgameMessage.text = "You survived!"
-	else:
-		$EndgameMessage.text = "You died..."
-	$EndgameMessage.show()
+	life_check()
+
+func call_hud():
+	$HUD.show()
+	$Lab/AnimationPlayer.play("fade_in")
+	$Titles.stop_music()
+	
+
+func _on_titles_titles_end():
+	call_hud()

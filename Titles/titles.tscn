@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8kyq5h22yhi3"]
+[gd_scene load_steps=25 format=3 uid="uid://c8kyq5h22yhi3"]
 
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="1_l8dt4"]
 [ext_resource type="Script" path="res://Titles/titles.gd" id="1_ot51o"]
@@ -60,9 +60,26 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_5osrg"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jkfg7"]
 _data = {
 "RESET": SubResource("Animation_f4tf6"),
+"fade_out": SubResource("Animation_5osrg"),
 "from_left": SubResource("Animation_q7m3h")
 }
 
@@ -121,9 +138,26 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_n4fq8"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efugh"]
 _data = {
 "RESET": SubResource("Animation_fluhr"),
+"fade_out": SubResource("Animation_n4fq8"),
 "from_right": SubResource("Animation_15pl4")
 }
 
@@ -157,48 +191,77 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0.980392, 0.380392, 0.286275, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_foex4"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dg3km"]
 _data = {
 "RESET": SubResource("Animation_dmjjv"),
-"fade_in": SubResource("Animation_m6kbm")
+"fade_in": SubResource("Animation_m6kbm"),
+"fade_out": SubResource("Animation_foex4")
 }
 
-[sub_resource type="Animation" id="Animation_natcy"]
-resource_name = "fade_in"
-length = 5.0
+[sub_resource type="Animation" id="Animation_0dax0"]
+resource_name = "fade_out"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
+tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 7.46426),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [-10.0, -80.0]
 }
 
-[sub_resource type="Animation" id="Animation_sft32"]
+[sub_resource type="Animation" id="Animation_6c1pq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
+tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [-10.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvufd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyiiw"]
 _data = {
-"RESET": SubResource("Animation_sft32"),
-"fade_in": SubResource("Animation_natcy")
+"RESET": SubResource("Animation_6c1pq"),
+"fade_out": SubResource("Animation_0dax0")
 }
 
 [sub_resource type="Animation" id="Animation_wn280"]
@@ -260,6 +323,14 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_8sbtk"),
 "appear": SubResource("Animation_wn280")
+}
+
+[sub_resource type="Animation" id="Animation_1broh"]
+resource_name = "fade_out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxheu"]
+_data = {
+"fade_out": SubResource("Animation_1broh")
 }
 
 [node name="Titles" type="Node"]
@@ -329,18 +400,9 @@ libraries = {
 stream = ExtResource("2_if2gk")
 volume_db = -10.0
 
-[node name="Fader" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fader"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MusicIntro"]
 libraries = {
-"": SubResource("AnimationLibrary_hvufd")
+"": SubResource("AnimationLibrary_dyiiw")
 }
 
 [node name="GWJ" type="TextureRect" parent="."]
@@ -364,3 +426,33 @@ texture = ExtResource("4_cwcea")
 libraries = {
 "": SubResource("AnimationLibrary_31y6n")
 }
+
+[node name="TapScreen" type="ColorRect" parent="." node_paths=PackedStringArray("shortcut_context")]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+shortcut_context = NodePath("Zap")
+
+[node name="Zap" type="Button" parent="TapScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vxheu")
+}
+
+[connection signal="pressed" from="TapScreen/Zap" to="." method="_on_zap_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
