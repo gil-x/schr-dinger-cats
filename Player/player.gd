@@ -23,7 +23,13 @@ func get_stuck():
 func register_position():
 	path_steps += 1 
 #	path.append(position)
-	path.append({"position": position, "step": path_steps, "frame": $AnimatedSprite2D.frame })
+	path.append(
+		{
+			"position": position,
+			"step": path_steps,
+			"frame": $AnimatedSprite2D.frame,
+		}
+	)
 
 func _ready():
 	screensize = get_viewport_rect().size
