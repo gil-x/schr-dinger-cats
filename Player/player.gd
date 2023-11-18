@@ -1,6 +1,7 @@
 extends Area2D
 
 signal pickup
+signal vomit
 
 @export var speed = 350
 
@@ -77,9 +78,18 @@ func _on_area_entered(area):
 	elif area.is_in_group("ghosts"):
 		area.touched()
 		$CollisionSound.play()
+		$AnimatedSprite2D.play("vomit")
 		get_stuck()
-	
+	elif area.is_in_group("pukes"):
+		speed = 1400
+		$SlideTimer.start()
+		$Slide.play()
+		
 
 func _on_paralyze_timer_timeout():
 	can_move = true
 	$CollisionShape2D.disabled = false
+	emit_signal("vomit")
+
+func _on_slide_timer_timeout():
+	speed = 350

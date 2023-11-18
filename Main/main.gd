@@ -5,7 +5,8 @@ signal time_up
 @export var particle_scene : PackedScene
 @export var box_scene : PackedScene
 @export var ghost_scene : PackedScene
-@export var playtime = 1
+@export var puke_scene : PackedScene
+@export var playtime = 20
 
 var time_left = playtime
 var chance_to_survive = 50
@@ -28,7 +29,7 @@ func prepare_new_game():
 #	$Victory.stop()
 #	$Loss.stop()
 	$HUD/StartButton.show()
-	chance_to_survive = 90
+	chance_to_survive = 50
 	$HUD.update_percent(chance_to_survive)
 	time_left = playtime
 	$HUD.update_time(time_left)
@@ -136,15 +137,16 @@ func life_check():
 	$HUD.hide_counters()
 	
 	await get_tree().create_timer(2).timeout
+	$Player.grow()
+	$Player.position = screensize / 2
 	if randi_range(0, 100) <= chance_to_survive:
 		$EndgameMessage.text = "KITTY IS ALIVE!"
 		$Player/AnimatedSprite2D.animation = "alive"
 #		$Player.show()
-		$Player.grow()
-		$Player.position = screensize / 2
 		$Victory.play()
 	else:
 		$EndgameMessage.text = "KITTY IS DEAD..."
+		$Player/AnimatedSprite2D.animation = "dead"
 		$Loss.play()
 	$EndgameMessage.show()
 	
@@ -157,6 +159,7 @@ func _on_time_up():
 	get_tree().call_group("particles", "queue_free")
 	get_tree().call_group("ghosts", "queue_free")
 	get_tree().call_group("boxes", "queue_free")
+	get_tree().call_group("pukes", "queue_free")
 	$Player/ParalyzeTimer.stop()
 	$Player.can_move = false
 	$MusicGame.stop()
@@ -178,3 +181,9 @@ func _on_loss_finished():
 
 func _on_victory_finished():
 	$Titles.replay_music()
+
+
+func _on_player_vomit():
+	var p = puke_scene.instantiate()
+	p.position = $Player.position
+	call_deferred("add_child", p)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpk1n8bdeeqgr"]
+[gd_scene load_steps=22 format=3 uid="uid://dpk1n8bdeeqgr"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xd5l2"]
 [ext_resource type="PackedScene" uid="uid://cneax31ffx8y8" path="res://Particle/particle.tscn" id="2_sgb2v"]
 [ext_resource type="PackedScene" uid="uid://bb7boe6udsli5" path="res://Player/player.tscn" id="2_v3rks"]
 [ext_resource type="PackedScene" uid="uid://cl34ejcm5s4yo" path="res://Ghost/ghost.tscn" id="4_gn0pu"]
+[ext_resource type="PackedScene" uid="uid://b3tcafsb02sus" path="res://Puke/puke.tscn" id="5_0d1x1"]
 [ext_resource type="PackedScene" uid="uid://cfy6wcvf8wcwv" path="res://Box/box.tscn" id="5_rtns4"]
 [ext_resource type="PackedScene" uid="uid://bld6g607ryhgx" path="res://HUD/hud.tscn" id="7_1hmjg"]
 [ext_resource type="Texture2D" uid="uid://c5n1v0xohhyxh" path="res://assets/box2.png" id="7_67cws"]
@@ -98,6 +99,7 @@ script = ExtResource("1_xd5l2")
 particle_scene = ExtResource("2_sgb2v")
 box_scene = ExtResource("5_rtns4")
 ghost_scene = ExtResource("4_gn0pu")
+puke_scene = ExtResource("5_0d1x1")
 
 [node name="Lab" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -178,6 +180,7 @@ stream = ExtResource("16_1jy7k")
 
 [connection signal="time_up" from="." to="." method="_on_time_up"]
 [connection signal="titles_end" from="Titles" to="." method="_on_titles_titles_end"]
+[connection signal="vomit" from="Player" to="." method="_on_player_vomit"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
 [connection signal="finished" from="Victory" to="." method="_on_victory_finished"]
