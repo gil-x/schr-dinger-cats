@@ -187,3 +187,4 @@ func _on_player_vomit():
 	var p = puke_scene.instantiate()
 	p.position = $Player.position
 	call_deferred("add_child", p)
+

@@ -27,7 +27,7 @@ func touched():
 	emit_signal("ghost_touched")
 	queue_free()
 
-func _process(delta):
+func _process(_delta):
 	$Steps.text = str(len(path))
 	if is_moving:
 		var step = path.pop_front()

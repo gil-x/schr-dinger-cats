@@ -40,8 +40,8 @@ func _ready():
 #print("%0*d" % [2, 3])
 # Output: "03"s
 
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
 
 
 func _on_start_button_pressed():

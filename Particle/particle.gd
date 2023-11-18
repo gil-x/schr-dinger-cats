@@ -11,5 +11,5 @@ func picked_up():
 func _ready():
 	pass
 
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass

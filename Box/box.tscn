@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfy6wcvf8wcwv"]
+[gd_scene load_steps=12 format=3 uid="uid://cfy6wcvf8wcwv"]
 
 [ext_resource type="Script" path="res://Box/box.gd" id="1_qv3aa"]
 [ext_resource type="Texture2D" uid="uid://1libnadmeguf" path="res://assets/box_door1.png" id="2_0l50n"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cku2ql3desd4c" path="res://assets/box_door4.png" id="5_ibr4j"]
 [ext_resource type="Texture2D" uid="uid://dwvc4v6i81asb" path="res://assets/box_door5.png" id="6_g5mh1"]
 [ext_resource type="Texture2D" uid="uid://70875ndsf163" path="res://assets/box_door6.png" id="7_x7y16"]
+[ext_resource type="Texture2D" uid="uid://cdyayoj8cdxyr" path="res://assets/used_box.png" id="8_8u88a"]
 [ext_resource type="AudioStream" uid="uid://2px18wi8sroj" path="res://assets/door_open.ogg" id="8_b5qia"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cqsi8"]
@@ -33,6 +34,14 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8u88a")
+}],
+"loop": true,
+"name": &"used",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddela"]
@@ -43,9 +52,8 @@ script = ExtResource("1_qv3aa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cqsi8")
+animation = &"used"
 autoplay = "default"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ddela")
