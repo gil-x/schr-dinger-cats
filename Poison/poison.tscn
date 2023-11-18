@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://k2lu05ecex6y"]
+
+[ext_resource type="Texture2D" uid="uid://cj8pqhyi3adoq" path="res://assets/poison_break.png" id="1_ekn4k"]
+[ext_resource type="Texture2D" uid="uid://ivcnx35iba66" path="res://assets/poison.png" id="1_nmwak"]
+[ext_resource type="Script" path="res://Poison/poison.gd" id="1_v1woa"]
+[ext_resource type="AudioStream" uid="uid://bvc8hj7ko5sxm" path="res://assets/glass_break.wav" id="4_xyupk"]
+[ext_resource type="AudioStream" uid="uid://b2xro2l6gmxm6" path="res://assets/alarm.ogg" id="5_lsm4x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqrmf"]
+atlas = ExtResource("1_ekn4k")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1w8b"]
+atlas = ExtResource("1_ekn4k")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84utm"]
+atlas = ExtResource("1_ekn4k")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiequ"]
+atlas = ExtResource("1_ekn4k")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mghij"]
+atlas = ExtResource("1_nmwak")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjq8r"]
+atlas = ExtResource("1_nmwak")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q144x"]
+atlas = ExtResource("1_nmwak")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi2mg"]
+atlas = ExtResource("1_nmwak")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6r8hj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqrmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1w8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84utm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eiequ")
+}],
+"loop": true,
+"name": &"break",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mghij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjq8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q144x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi2mg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6qat"]
+radius = 9.0
+
+[node name="Poison" type="Area2D" groups=["poisons"]]
+script = ExtResource("1_v1woa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6r8hj")
+animation = &"break"
+autoplay = "default"
+frame_progress = 0.145301
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_d6qat")
+
+[node name="Break" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xyupk")
+volume_db = 5.0
+
+[node name="Warning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lsm4x")
+volume_db = -10.0

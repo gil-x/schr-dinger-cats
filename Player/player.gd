@@ -86,7 +86,8 @@ func _on_area_entered(area):
 		speed = 1400
 		$SlideTimer.start()
 		$Slide.play()
-		
+	elif area.is_in_group("poisons"):
+		area.breaked()
 
 func _on_paralyze_timer_timeout():
 	can_move = true

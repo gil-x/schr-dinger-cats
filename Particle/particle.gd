@@ -2,7 +2,7 @@ extends Area2D
 
 signal collected
 
-var screensize = Vector2.ZERO
+#var screensize = Vector2.ZERO
 
 func picked_up():
 	emit_signal("collected")

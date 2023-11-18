@@ -6,6 +6,7 @@ signal time_up
 @export var box_scene : PackedScene
 @export var ghost_scene : PackedScene
 @export var puke_scene : PackedScene
+@export var poison_scene : PackedScene
 @export var playtime = 20
 
 var time_left = playtime
@@ -73,6 +74,14 @@ func _on_collected():
 	if get_tree().get_nodes_in_group("particles").size() == 0:
 		spawn_box()
 
+func spawn_poison():
+	var p = poison_scene.instantiate()
+	p.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
+	p.position.x = clamp(p.position.x, margin_w, screensize.x - margin_w)
+	p.position.y = clamp(p.position.y, margin_h, screensize.y - margin_h)
+	p.poison.connect(self._on_poison)
+	call_deferred("add_child", p)
+	
 func spawn_particles(number):
 	for i in number:
 		var p = particle_scene.instantiate()
@@ -97,7 +106,9 @@ func spawn_ghost():
 	g.ghost_touched.connect(self._on_ghost_touched)
 	$Player.reset_path()
 	spawn_particles(3)
-	chance_to_survive += 5
+	chance_to_survive += randi_range(1, 10)
+	if chance_to_survive > 80:
+		spawn_poison()
 	$HUD.update_percent(chance_to_survive)
 	call_deferred("add_child", g)
 
@@ -106,9 +117,12 @@ func _on_box_used():
 #	print("box used")
 
 func _on_ghost_touched():
-	chance_to_survive -= 10
+	chance_to_survive -= randi_range(1, 5)
 	$HUD.update_percent(chance_to_survive)
 
+func _on_poison():
+	chance_to_survive -= randi_range(20, 50)
+	$HUD.update_percent(chance_to_survive)
 #func _process(delta):
 ##	$EndgameMessage.text = str($Player.can_move)
 #	pass
@@ -160,6 +174,7 @@ func _on_time_up():
 	get_tree().call_group("ghosts", "queue_free")
 	get_tree().call_group("boxes", "queue_free")
 	get_tree().call_group("pukes", "queue_free")
+	get_tree().call_group("poisons", "queue_free")
 	$Player/ParalyzeTimer.stop()
 	$Player.can_move = false
 	$MusicGame.stop()
