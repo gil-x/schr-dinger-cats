@@ -18,7 +18,7 @@ func reset_path():
 func get_stuck():
 	can_move = false
 	$ParalyzeTimer.start()
-
+	$CollisionShape2D.disabled = true
 
 func register_position():
 	path_steps += 1 
@@ -82,3 +82,4 @@ func _on_area_entered(area):
 
 func _on_paralyze_timer_timeout():
 	can_move = true
+	$CollisionShape2D.disabled = false

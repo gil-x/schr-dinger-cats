@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bld6g607ryhgx"]
+[gd_scene load_steps=14 format=3 uid="uid://bld6g607ryhgx"]
 
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="1_2h60d"]
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="2_328x6"]
@@ -93,10 +93,47 @@ _data = {
 "bubbles": SubResource("Animation_m1vxn")
 }
 
+[sub_resource type="Animation" id="Animation_xhw8d"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rhtkr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsr5w"]
+_data = {
+"RESET": SubResource("Animation_rhtkr"),
+"fade_in": SubResource("Animation_xhw8d")
+}
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_2h60d")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -147,6 +184,7 @@ theme_override_font_sizes/font_size = 36
 text = "START"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -166,6 +204,11 @@ hframes = 4
 autoplay = "bubbles"
 libraries = {
 "": SubResource("AnimationLibrary_lj7n8")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer2"]
+libraries = {
+"": SubResource("AnimationLibrary_hsr5w")
 }
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

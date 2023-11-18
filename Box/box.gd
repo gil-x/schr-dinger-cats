@@ -7,7 +7,7 @@ func used():
 	queue_free()
 
 func _ready():
-	pass
+	$DoorOpen.play()
 
 func _process(delta):
 	pass

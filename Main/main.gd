@@ -25,12 +25,14 @@ func intro():
 	$MusicIntro.play()
 	
 func prepare_new_game():
+#	$Victory.stop()
+#	$Loss.stop()
 	$HUD/StartButton.show()
 	chance_to_survive = 50
 	$HUD.update_percent(chance_to_survive)
 	time_left = playtime
 	$HUD.update_time(time_left)
-	$Titles.replay_music()
+#	$Titles.replay_music()
 	$Player.hide()
 	$Player.position = screensize / 2
 
@@ -46,6 +48,8 @@ func setup():
 	# Defer 1 sec
 	await get_tree().create_timer(1).timeout
 	$Titles.hide_titles()
+	$Victory.stop()
+	$Loss.stop()
 	# Defer 2 secs
 	await get_tree().create_timer(2).timeout
 	$Timer.start()
@@ -63,7 +67,8 @@ func _on_collected():
 	time_left = current_time + 1
 	$HUD.update_time(time_left)
 	$Timer.start()
-	if get_tree().get_nodes_in_group("particles").size() == 1:
+	await get_tree().create_timer(0.1).timeout
+	if get_tree().get_nodes_in_group("particles").size() == 0:
 		spawn_box()
 
 func spawn_particles(number):
@@ -127,13 +132,16 @@ func _on_hud_start_game():
 	
 
 func life_check():
-	if randi_range(0, 100) <= chance_to_survive:
-		$EndgameMessage.text = "KITTY IS ALIVE!"
-	else:
-		$EndgameMessage.text = "KITTY IS DEAD..."
 	$HUD.hide_counters()
 	await get_tree().create_timer(2).timeout
+	if randi_range(0, 100) <= chance_to_survive:
+		$EndgameMessage.text = "KITTY IS ALIVE!"
+		$Victory.play()
+	else:
+		$EndgameMessage.text = "KITTY IS DEAD..."
+		$Loss.play()
 	$EndgameMessage.show()
+	
 	await get_tree().create_timer(1).timeout
 	prepare_new_game()
 
@@ -150,9 +158,17 @@ func _on_time_up():
 
 func call_hud():
 	$HUD.show()
-	$Lab/AnimationPlayer.play("fade_in")
+#	$Lab/AnimationPlayer.play("fade_in")
 	$Titles.hide_background()
 	
 
 func _on_titles_titles_end():
 	call_hud()
+
+
+func _on_loss_finished():
+	$Titles.replay_music()
+
+
+func _on_victory_finished():
+	$Titles.replay_music()

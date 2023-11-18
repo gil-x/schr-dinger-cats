@@ -4,9 +4,12 @@ signal start_game
 
 func show_counters():
 	$MarginContainer.show()
+	$MarginContainer2.show()
 	$MarginContainer/AnimationPlayer.play("fade_in")
+	$MarginContainer2/AnimationPlayer.play("fade_in")
 
 func hide_counters():
+	$MarginContainer2.hide()
 	$MarginContainer/AnimationPlayer.play("fade_out")
 
 func update_time(value):

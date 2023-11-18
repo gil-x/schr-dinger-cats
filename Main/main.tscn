@@ -1,12 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://dpk1n8bdeeqgr"]
+[gd_scene load_steps=21 format=3 uid="uid://dpk1n8bdeeqgr"]
 
-[ext_resource type="Texture2D" uid="uid://qcpcqtl8bcpe" path="res://assets/temp_bg.png" id="1_owei5"]
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xd5l2"]
 [ext_resource type="PackedScene" uid="uid://cneax31ffx8y8" path="res://Particle/particle.tscn" id="2_sgb2v"]
 [ext_resource type="PackedScene" uid="uid://bb7boe6udsli5" path="res://Player/player.tscn" id="2_v3rks"]
 [ext_resource type="PackedScene" uid="uid://cl34ejcm5s4yo" path="res://Ghost/ghost.tscn" id="4_gn0pu"]
 [ext_resource type="PackedScene" uid="uid://cfy6wcvf8wcwv" path="res://Box/box.tscn" id="5_rtns4"]
 [ext_resource type="PackedScene" uid="uid://bld6g607ryhgx" path="res://HUD/hud.tscn" id="7_1hmjg"]
+[ext_resource type="Texture2D" uid="uid://c5n1v0xohhyxh" path="res://assets/box2.png" id="7_67cws"]
 [ext_resource type="AudioStream" uid="uid://yaovftkxoacn" path="res://assets/temp_music.ogg" id="8_7gswy"]
 [ext_resource type="Texture2D" uid="uid://cmwii3p3b5t7t" path="res://assets/temp_lab.png" id="9_kfjyw"]
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="10_bep3t"]
@@ -14,67 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://bnwumfk7757bb" path="res://assets/tick1.ogg" id="11_t8jml"]
 [ext_resource type="AudioStream" uid="uid://djguuf36krfit" path="res://assets/tick2.ogg" id="12_hg2gd"]
 [ext_resource type="AudioStream" uid="uid://cvgngktu4h48v" path="res://assets/microwave-timer.mp3" id="13_pqkt7"]
-
-[sub_resource type="Animation" id="Animation_tw2ci"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_m8rc8"]
-resource_name = "fade_in"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_72bwp"]
-_data = {
-"RESET": SubResource("Animation_tw2ci"),
-"fade_in": SubResource("Animation_m8rc8")
-}
+[ext_resource type="AudioStream" uid="uid://drhgd70v6rc7s" path="res://assets/cat_purr.wav" id="15_ir22x"]
+[ext_resource type="AudioStream" uid="uid://dh7xi771flmhm" path="res://assets/cat_dead.wav" id="16_1jy7k"]
 
 [sub_resource type="Animation" id="Animation_2u2ec"]
 length = 0.001
@@ -159,18 +100,12 @@ box_scene = ExtResource("5_rtns4")
 ghost_scene = ExtResource("4_gn0pu")
 
 [node name="Lab" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_kfjyw")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lab"]
-libraries = {
-"": SubResource("AnimationLibrary_72bwp")
-}
 
 [node name="Titles" parent="." instance=ExtResource("10_eqayr")]
 
@@ -188,7 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(200, 200)
 size_flags_vertical = 4
-texture = ExtResource("1_owei5")
+texture = ExtResource("7_67cws")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BoxBackground"]
 libraries = {
@@ -235,7 +170,15 @@ stream = ExtResource("12_hg2gd")
 [node name="Tick3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_pqkt7")
 
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ir22x")
+
+[node name="Loss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_1jy7k")
+
 [connection signal="time_up" from="." to="." method="_on_time_up"]
 [connection signal="titles_end" from="Titles" to="." method="_on_titles_titles_end"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
+[connection signal="finished" from="Victory" to="." method="_on_victory_finished"]
+[connection signal="finished" from="Loss" to="." method="_on_loss_finished"]
