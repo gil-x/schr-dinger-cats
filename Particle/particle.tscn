@@ -1,16 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://cneax31ffx8y8"]
+[gd_scene load_steps=8 format=3 uid="uid://cneax31ffx8y8"]
 
 [ext_resource type="Script" path="res://Particle/particle.gd" id="1_53ubm"]
-[ext_resource type="Texture2D" uid="uid://to6o768carg5" path="res://assets/temp_particle.png" id="1_uenyc"]
+[ext_resource type="Texture2D" uid="uid://bwouuspvno7w0" path="res://assets/particle1.png" id="2_ckm3c"]
+[ext_resource type="Texture2D" uid="uid://cw6jrynt7w7cp" path="res://assets/particle2.png" id="3_s2l0b"]
+[ext_resource type="Texture2D" uid="uid://bqh3bllfixljm" path="res://assets/particle3.png" id="4_ybw0r"]
+[ext_resource type="Texture2D" uid="uid://sa5nng1vwwae" path="res://assets/particle4.png" id="5_m13jg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ha4t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_uenyc")
+"texture": ExtResource("2_ckm3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s2l0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ybw0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m13jg")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -21,8 +33,10 @@ radius = 6.0
 script = ExtResource("1_53ubm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_6ha4t")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.11969
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_drr32")

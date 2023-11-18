@@ -6,6 +6,9 @@ func show_counters():
 	$MarginContainer.show()
 	$MarginContainer/AnimationPlayer.play("fade_in")
 
+func hide_counters():
+	$MarginContainer/AnimationPlayer.play("fade_out")
+
 func update_time(value):
 	if value >= 99:
 		$MarginContainer/Time.text = "99"

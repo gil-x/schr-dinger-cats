@@ -5,6 +5,21 @@
 [ext_resource type="AudioStream" uid="uid://4x7tgixldiov" path="res://assets/temp_intro_music.ogg" id="2_if2gk"]
 [ext_resource type="Texture2D" uid="uid://bed087nj6u82e" path="res://assets/GWJ_logo.svg" id="4_cwcea"]
 
+[sub_resource type="Animation" id="Animation_qpoqu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_he82d"]
 resource_name = "fade_out"
 length = 5.0
@@ -21,53 +36,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_qpoqu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gqmf4"]
 _data = {
 "RESET": SubResource("Animation_qpoqu"),
 "fade_out": SubResource("Animation_he82d")
-}
-
-[sub_resource type="Animation" id="Animation_q7m3h"]
-resource_name = "from_left"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(5, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(80, 134), Vector2(120, 134)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5.5, 7),
-"transitions": PackedFloat32Array(1, 14.9285, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_f4tf6"]
@@ -113,15 +85,8 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jkfg7"]
-_data = {
-"RESET": SubResource("Animation_f4tf6"),
-"fade_out": SubResource("Animation_5osrg"),
-"from_left": SubResource("Animation_q7m3h")
-}
-
-[sub_resource type="Animation" id="Animation_15pl4"]
-resource_name = "from_right"
+[sub_resource type="Animation" id="Animation_q7m3h"]
+resource_name = "from_left"
 length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -133,7 +98,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(5, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(160, 225), Vector2(120, 225)]
+"values": [Vector2(80, 134), Vector2(120, 134)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -142,10 +107,17 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 6.5, 8.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 5.5, 7),
+"transitions": PackedFloat32Array(1, 14.9285, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jkfg7"]
+_data = {
+"RESET": SubResource("Animation_f4tf6"),
+"fade_out": SubResource("Animation_5osrg"),
+"from_left": SubResource("Animation_q7m3h")
 }
 
 [sub_resource type="Animation" id="Animation_fluhr"]
@@ -191,27 +163,39 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_15pl4"]
+resource_name = "from_right"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, 225), Vector2(120, 225)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.5, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efugh"]
 _data = {
 "RESET": SubResource("Animation_fluhr"),
 "fade_out": SubResource("Animation_n4fq8"),
 "from_right": SubResource("Animation_15pl4")
-}
-
-[sub_resource type="Animation" id="Animation_m6kbm"]
-resource_name = "fade_in"
-length = 11.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_colors/font_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(3.5, 10.5, 11),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.980392, 0.380392, 0.286275, 0), Color(0.980392, 0.380392, 0.286275, 0), Color(0.980392, 0.380392, 0.286275, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dmjjv"]
@@ -241,6 +225,22 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_m6kbm"]
+resource_name = "fade_in"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.5, 10.5, 11),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.980392, 0.380392, 0.286275, 0), Color(0.980392, 0.380392, 0.286275, 0), Color(0.980392, 0.380392, 0.286275, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_foex4"]
 resource_name = "fade_out"
 length = 0.5
@@ -264,6 +264,21 @@ _data = {
 "fade_out": SubResource("Animation_foex4")
 }
 
+[sub_resource type="Animation" id="Animation_6c1pq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
+
 [sub_resource type="Animation" id="Animation_0dax0"]
 resource_name = "fade_out"
 length = 2.0
@@ -280,25 +295,37 @@ tracks/0/keys = {
 "values": [-10.0, -80.0]
 }
 
-[sub_resource type="Animation" id="Animation_6c1pq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyiiw"]
+_data = {
+"RESET": SubResource("Animation_6c1pq"),
+"fade_out": SubResource("Animation_0dax0")
+}
+
+[sub_resource type="Animation" id="Animation_8sbtk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:volume_db")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-10.0]
+"values": [Vector2(1, 1)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyiiw"]
-_data = {
-"RESET": SubResource("Animation_6c1pq"),
-"fade_out": SubResource("Animation_0dax0")
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_wn280"]
@@ -327,33 +354,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8sbtk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_31y6n"]

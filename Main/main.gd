@@ -131,6 +131,7 @@ func life_check():
 		$EndgameMessage.text = "KITTY IS ALIVE!"
 	else:
 		$EndgameMessage.text = "KITTY IS DEAD..."
+	$HUD.hide_counters()
 	await get_tree().create_timer(2).timeout
 	$EndgameMessage.show()
 	await get_tree().create_timer(1).timeout

@@ -1,22 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bld6g607ryhgx"]
+[gd_scene load_steps=11 format=3 uid="uid://bld6g607ryhgx"]
 
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="1_2h60d"]
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="2_328x6"]
-
-[sub_resource type="Animation" id="Animation_n1ukw"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[ext_resource type="Texture2D" uid="uid://ivcnx35iba66" path="res://assets/poison.png" id="3_8xt85"]
 
 [sub_resource type="Animation" id="Animation_l2y15"]
 length = 0.001
@@ -33,17 +19,84 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_n1ukw"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_85dju"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kccq3"]
 _data = {
 "RESET": SubResource("Animation_l2y15"),
-"fade_in": SubResource("Animation_n1ukw")
+"fade_in": SubResource("Animation_n1ukw"),
+"fade_out": SubResource("Animation_85dju")
+}
+
+[sub_resource type="Animation" id="Animation_m1vxn"]
+resource_name = "bubbles"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_2bygr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lj7n8"]
+_data = {
+"RESET": SubResource("Animation_2bygr"),
+"bubbles": SubResource("Animation_m1vxn")
 }
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_2h60d")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -54,20 +107,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
 [node name="Time" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_328x6")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 36
 text = "20"
 
 [node name="Percent" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_328x6")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 36
 text = "50%"
 horizontal_alignment = 2
 
@@ -92,5 +145,27 @@ mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_328x6")
 theme_override_font_sizes/font_size = 36
 text = "START"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="Poison" type="Sprite2D" parent="MarginContainer2"]
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("3_8xt85")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer2/Poison"]
+autoplay = "bubbles"
+libraries = {
+"": SubResource("AnimationLibrary_lj7n8")
+}
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
