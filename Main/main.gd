@@ -5,7 +5,7 @@ signal time_up
 @export var particle_scene : PackedScene
 @export var box_scene : PackedScene
 @export var ghost_scene : PackedScene
-@export var playtime = 20
+@export var playtime = 1
 
 var time_left = playtime
 var chance_to_survive = 50
@@ -28,12 +28,12 @@ func prepare_new_game():
 #	$Victory.stop()
 #	$Loss.stop()
 	$HUD/StartButton.show()
-	chance_to_survive = 50
+	chance_to_survive = 90
 	$HUD.update_percent(chance_to_survive)
 	time_left = playtime
 	$HUD.update_time(time_left)
 #	$Titles.replay_music()
-	$Player.hide()
+#	$Player.hide()
 	$Player.position = screensize / 2
 
 func setup():
@@ -41,6 +41,7 @@ func setup():
 	$HUD/StartButton.hide()
 	$BoxBackground.show()
 	$BoxBackground/AnimationPlayer.play("grow_up")
+	$Player/AnimatedSprite2D.animation = "idle"
 	$Player.grow()
 	$Player.show()
 	$Titles.stop_music()
@@ -133,9 +134,14 @@ func _on_hud_start_game():
 
 func life_check():
 	$HUD.hide_counters()
+	
 	await get_tree().create_timer(2).timeout
 	if randi_range(0, 100) <= chance_to_survive:
 		$EndgameMessage.text = "KITTY IS ALIVE!"
+		$Player/AnimatedSprite2D.animation = "alive"
+#		$Player.show()
+		$Player.grow()
+		$Player.position = screensize / 2
 		$Victory.play()
 	else:
 		$EndgameMessage.text = "KITTY IS DEAD..."
