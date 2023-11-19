@@ -12,7 +12,6 @@ var rec_path = false
 var path = []
 var path_steps = 0
 
-
 func reset_path():
 	path = []
 	path_steps = 0
@@ -20,13 +19,10 @@ func reset_path():
 func get_stuck():
 	can_move = false
 	$ParalyzeTimer.start()
-#	call_deferred()
 	$CollisionShape2D.set_deferred("disabled", true)
-#	$CollisionShape2D.disabled = true
 
 func register_position():
 	path_steps += 1 
-#	path.append(position)
 	path.append(
 		{
 			"position": position,
@@ -64,12 +60,8 @@ func _process(delta):
 			$AnimatedSprite2D.animation = "siding_left"
 		else:
 			$AnimatedSprite2D.animation = "idle"
-#		if velocity.x != 0:
-#			$AnimatedSprite2D.flip_h = velocity.x < 0
-		
 	if rec_path:
 		register_position()
-
 
 func _on_area_entered(area):
 	if area.is_in_group("particles"):

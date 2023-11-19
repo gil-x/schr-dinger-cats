@@ -20,24 +20,19 @@ func _ready():
 	randomize()
 	$Player.hide()
 	$BoxBackground.hide()
-#	$HUD.hide()
-#	intro()
 
 func intro():
 	$MusicIntro.play()
-	
+
 func prepare_new_game():
-#	$Victory.stop()
-#	$Loss.stop()
 	$HUD/StartButton.show()
 	$HUD.can_start = true
 	chance_to_survive = 50
 	$HUD.update_percent(chance_to_survive)
 	time_left = playtime
 	$HUD.update_time(time_left)
-#	$Titles.replay_music()
-#	$Player.hide()
 	$Player.position = screensize / 2
+	$Player/CollisionShape2D.set_deferred("disabled", false)
 
 func setup():
 	# Immediately
@@ -62,11 +57,8 @@ func setup():
 	$Player.rec_path = true
 	$Player.can_move = true
 	$MusicGame.play()
-#	$Titles.off()
-	
 
 func _on_collected():
-#	print("collected")
 	$Timer.stop()
 	var current_time = int($HUD/MarginContainer/Time.text)
 	time_left = current_time + 1
@@ -83,7 +75,7 @@ func spawn_poison():
 	p.position.y = clamp(p.position.y, margin_h, screensize.y - margin_h)
 	p.poison.connect(self._on_poison)
 	call_deferred("add_child", p)
-	
+
 func spawn_particles(number):
 	for i in number:
 		var p = particle_scene.instantiate()
@@ -102,7 +94,6 @@ func spawn_box():
 	$BoxBackground.call_deferred("add_sibling", b)
 
 func spawn_ghost():
-#	print("spawn ghost")
 	var g = ghost_scene.instantiate()
 	g.path = $Player.path.duplicate()
 	g.ghost_touched.connect(self._on_ghost_touched)
@@ -116,7 +107,6 @@ func spawn_ghost():
 
 func _on_box_used():
 	spawn_ghost()
-#	print("box used")
 
 func _on_ghost_touched():
 	chance_to_survive -= randi_range(1, 5)
@@ -125,11 +115,6 @@ func _on_ghost_touched():
 func _on_poison():
 	chance_to_survive -= randi_range(20, 50)
 	$HUD.update_percent(chance_to_survive)
-#func _process(delta):
-##	$EndgameMessage.text = str($Player.can_move)
-#	pass
-
-
 
 func _on_timer_timeout():
 	time_left -= 1
@@ -144,15 +129,12 @@ func _on_timer_timeout():
 		emit_signal("time_up")
 		$Tick3.play()
 
-
 func _on_hud_start_game():
 	$HUD.can_start = true
 	setup()
-	
 
 func life_check():
 	$HUD.hide_counters()
-	
 	await get_tree().create_timer(2).timeout
 	$Player.grow()
 	$Player.position = screensize / 2
@@ -166,7 +148,6 @@ func life_check():
 		$Player/AnimatedSprite2D.animation = "dead"
 		$Loss.play()
 	$EndgameMessage.show()
-	
 	await get_tree().create_timer(1).timeout
 	prepare_new_game()
 
@@ -186,21 +167,16 @@ func _on_time_up():
 func call_hud():
 	$HUD.show()
 	$HUD.can_start = false
-#	$Lab/AnimationPlayer.play("fade_in")
 	$Titles.hide_background()
-	
 
 func _on_titles_titles_end():
 	call_hud()
 
-
 func _on_loss_finished():
 	$Titles.replay_music()
 
-
 func _on_victory_finished():
 	$Titles.replay_music()
-
 
 func _on_player_vomit():
 	var p = puke_scene.instantiate()
