@@ -1,25 +1,25 @@
 [gd_scene load_steps=8 format=3 uid="uid://cneax31ffx8y8"]
 
 [ext_resource type="Script" path="res://Particle/particle.gd" id="1_53ubm"]
-[ext_resource type="Texture2D" uid="uid://bwouuspvno7w0" path="res://assets/particle1.png" id="2_ckm3c"]
-[ext_resource type="Texture2D" uid="uid://cw6jrynt7w7cp" path="res://assets/particle2.png" id="3_s2l0b"]
-[ext_resource type="Texture2D" uid="uid://bqh3bllfixljm" path="res://assets/particle3.png" id="4_ybw0r"]
-[ext_resource type="Texture2D" uid="uid://sa5nng1vwwae" path="res://assets/particle4.png" id="5_m13jg"]
+[ext_resource type="Texture2D" uid="uid://bwouuspvno7w0" path="res://Particle/particle1.png" id="2_v5ebf"]
+[ext_resource type="Texture2D" uid="uid://cw6jrynt7w7cp" path="res://Particle/particle2.png" id="3_7wm2i"]
+[ext_resource type="Texture2D" uid="uid://bqh3bllfixljm" path="res://Particle/particle3.png" id="4_rqmmp"]
+[ext_resource type="Texture2D" uid="uid://sa5nng1vwwae" path="res://Particle/particle4.png" id="5_wdyno"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ha4t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ckm3c")
+"texture": ExtResource("2_v5ebf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_s2l0b")
+"texture": ExtResource("3_7wm2i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ybw0r")
+"texture": ExtResource("4_rqmmp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_m13jg")
+"texture": ExtResource("5_wdyno")
 }],
 "loop": true,
 "name": &"idle",

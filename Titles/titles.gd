@@ -17,6 +17,11 @@ func hide_titles():
 	$TitleCatS/AnimationPlayer.play("fade_out")
 	$Background.hide()
 
+func fucking_hide_titles():
+	$TitleShrodinger.hide()
+	$TitleCat.hide()
+	$TitleCatS.hide()
+
 func replay_music():
 	$MusicIntro.volume_db = 0
 	$MusicIntro.play()

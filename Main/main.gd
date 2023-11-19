@@ -7,7 +7,7 @@ signal time_up
 @export var ghost_scene : PackedScene
 @export var puke_scene : PackedScene
 @export var poison_scene : PackedScene
-@export var playtime = 20
+@export var playtime = 2
 
 var time_left = playtime
 var chance_to_survive = 50
@@ -49,9 +49,11 @@ func setup():
 	$Player.show()
 	$Titles.stop_music()
 	$EndgameMessage.hide()
+#	
 	# Defer 1 sec
-	await get_tree().create_timer(1).timeout
 	$Titles.hide_titles()
+	await get_tree().create_timer(1).timeout
+	
 	$Victory.stop()
 	$Loss.stop()
 	# Defer 2 secs
@@ -153,6 +155,7 @@ func life_check():
 		$Loss.play()
 	$EndgameMessage.show()
 	await get_tree().create_timer(1).timeout
+	$Titles.fucking_hide_titles()
 	prepare_new_game()
 
 func _on_time_up():

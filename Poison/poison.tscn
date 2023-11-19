@@ -1,41 +1,41 @@
 [gd_scene load_steps=16 format=3 uid="uid://k2lu05ecex6y"]
 
-[ext_resource type="Texture2D" uid="uid://cj8pqhyi3adoq" path="res://assets/poison_break.png" id="1_ekn4k"]
-[ext_resource type="Texture2D" uid="uid://ivcnx35iba66" path="res://assets/poison.png" id="1_nmwak"]
 [ext_resource type="Script" path="res://Poison/poison.gd" id="1_v1woa"]
+[ext_resource type="Texture2D" uid="uid://cj8pqhyi3adoq" path="res://Poison/poison_break.png" id="2_ljbsd"]
+[ext_resource type="Texture2D" uid="uid://ivcnx35iba66" path="res://Poison/poison.png" id="3_xk1oi"]
 [ext_resource type="AudioStream" uid="uid://bvc8hj7ko5sxm" path="res://assets/glass_break.wav" id="4_xyupk"]
 [ext_resource type="AudioStream" uid="uid://b2xro2l6gmxm6" path="res://assets/alarm.ogg" id="5_lsm4x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqrmf"]
-atlas = ExtResource("1_ekn4k")
+atlas = ExtResource("2_ljbsd")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1w8b"]
-atlas = ExtResource("1_ekn4k")
+atlas = ExtResource("2_ljbsd")
 region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84utm"]
-atlas = ExtResource("1_ekn4k")
+atlas = ExtResource("2_ljbsd")
 region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eiequ"]
-atlas = ExtResource("1_ekn4k")
+atlas = ExtResource("2_ljbsd")
 region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mghij"]
-atlas = ExtResource("1_nmwak")
+atlas = ExtResource("3_xk1oi")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjq8r"]
-atlas = ExtResource("1_nmwak")
+atlas = ExtResource("3_xk1oi")
 region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q144x"]
-atlas = ExtResource("1_nmwak")
+atlas = ExtResource("3_xk1oi")
 region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi2mg"]
-atlas = ExtResource("1_nmwak")
+atlas = ExtResource("3_xk1oi")
 region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6r8hj"]

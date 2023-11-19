@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="1_2h60d"]
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="2_328x6"]
-[ext_resource type="Texture2D" uid="uid://c3ogjkp3i6tfu" path="res://assets/cat_head.png" id="3_n2tlq"]
-[ext_resource type="Texture2D" uid="uid://twle6o4ptcet" path="res://assets/timer.png" id="4_jpdgh"]
+[ext_resource type="Texture2D" uid="uid://c3ogjkp3i6tfu" path="res://HUD/cat_head.png" id="3_23soc"]
+[ext_resource type="Texture2D" uid="uid://twle6o4ptcet" path="res://HUD/timer.png" id="4_cs7db"]
 
 [sub_resource type="Animation" id="Animation_l2y15"]
 length = 0.001
@@ -199,7 +199,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="CatHead" type="Sprite2D" parent="MarginContainer2"]
 scale = Vector2(2, 2)
-texture = ExtResource("3_n2tlq")
+texture = ExtResource("3_23soc")
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer2/CatHead"]
@@ -227,7 +227,7 @@ theme_override_constants/margin_bottom = 0
 [node name="HourGlass" type="Sprite2D" parent="MarginContainer3"]
 position = Vector2(39, 0)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_jpdgh")
+texture = ExtResource("4_cs7db")
 hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer3/HourGlass"]

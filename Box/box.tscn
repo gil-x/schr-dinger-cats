@@ -1,44 +1,44 @@
 [gd_scene load_steps=16 format=3 uid="uid://cfy6wcvf8wcwv"]
 
 [ext_resource type="Script" path="res://Box/box.gd" id="1_qv3aa"]
-[ext_resource type="Texture2D" uid="uid://mcg11ejpfig5" path="res://assets/box_magic.png" id="2_lc4sg"]
-[ext_resource type="Texture2D" uid="uid://cdyayoj8cdxyr" path="res://assets/used_box.png" id="8_8u88a"]
+[ext_resource type="Texture2D" uid="uid://mcg11ejpfig5" path="res://Box/box_magic.png" id="2_u3vga"]
+[ext_resource type="Texture2D" uid="uid://cdyayoj8cdxyr" path="res://Box/used_box.png" id="3_8guyj"]
 [ext_resource type="AudioStream" uid="uid://2px18wi8sroj" path="res://assets/door_open.ogg" id="8_b5qia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ts8gf"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3dbl"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fo724"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lgjj"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uhj6"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(96, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg6il"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(120, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8brmo"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(144, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqc2n"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(168, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ajsae"]
-atlas = ExtResource("2_lc4sg")
+atlas = ExtResource("2_u3vga")
 region = Rect2(192, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cqsi8"]
@@ -77,7 +77,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_8u88a")
+"texture": ExtResource("3_8guyj")
 }],
 "loop": true,
 "name": &"used",

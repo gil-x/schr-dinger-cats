@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://k2lu05ecex6y" path="res://Poison/poison.tscn" id="6_i6qou"]
 [ext_resource type="PackedScene" uid="uid://bld6g607ryhgx" path="res://HUD/hud.tscn" id="7_1hmjg"]
 [ext_resource type="AudioStream" uid="uid://yaovftkxoacn" path="res://assets/temp_music.ogg" id="8_7gswy"]
-[ext_resource type="Texture2D" uid="uid://bochacahsbud" path="res://assets/box_n2.png" id="8_7rptg"]
+[ext_resource type="Texture2D" uid="uid://bochacahsbud" path="res://Box/box_n2.png" id="8_30hm4"]
 [ext_resource type="Texture2D" uid="uid://cmwii3p3b5t7t" path="res://assets/temp_lab.png" id="9_kfjyw"]
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="10_bep3t"]
 [ext_resource type="PackedScene" uid="uid://c8kyq5h22yhi3" path="res://Titles/titles.tscn" id="10_eqayr"]
@@ -161,7 +161,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(220, 220)
 size_flags_vertical = 4
-texture = ExtResource("8_7rptg")
+texture = ExtResource("8_30hm4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BoxBackground"]
 libraries = {
