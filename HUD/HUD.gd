@@ -2,6 +2,12 @@ extends CanvasLayer
 
 signal start_game
 
+var can_start = false
+
+func _input(event):
+	if event.is_action_pressed("ui_accept") and can_start:
+		emit_signal("start_game")
+
 func show_counters():
 	$MarginContainer.show()
 	$MarginContainer2.show()

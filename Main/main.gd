@@ -30,6 +30,7 @@ func prepare_new_game():
 #	$Victory.stop()
 #	$Loss.stop()
 	$HUD/StartButton.show()
+	$HUD.can_start = true
 	chance_to_survive = 50
 	$HUD.update_percent(chance_to_survive)
 	time_left = playtime
@@ -41,6 +42,7 @@ func prepare_new_game():
 func setup():
 	# Immediately
 	$HUD/StartButton.hide()
+	$HUD.can_start = false
 	$BoxBackground.show()
 	$BoxBackground/AnimationPlayer.play("grow_up")
 	$Player/AnimatedSprite2D.animation = "idle"
@@ -97,7 +99,7 @@ func spawn_box():
 	b.position.x = clamp(b.position.x, margin_w, screensize.x - margin_w)
 	b.position.y = clamp(b.position.y, margin_h, screensize.y - margin_h)
 	b.box_used.connect(self._on_box_used)
-	call_deferred("add_child", b)
+	$BoxBackground.call_deferred("add_sibling", b)
 
 func spawn_ghost():
 #	print("spawn ghost")
@@ -144,6 +146,7 @@ func _on_timer_timeout():
 
 
 func _on_hud_start_game():
+	$HUD.can_start = true
 	setup()
 	
 
@@ -182,6 +185,7 @@ func _on_time_up():
 
 func call_hud():
 	$HUD.show()
+	$HUD.can_start = false
 #	$Lab/AnimationPlayer.play("fade_in")
 	$Titles.hide_background()
 	

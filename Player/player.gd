@@ -12,6 +12,7 @@ var rec_path = false
 var path = []
 var path_steps = 0
 
+
 func reset_path():
 	path = []
 	path_steps = 0

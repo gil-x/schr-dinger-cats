@@ -111,8 +111,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_kfjyw")
 
-[node name="Titles" parent="." instance=ExtResource("10_eqayr")]
-
 [node name="BoxBackground" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,6 +133,9 @@ libraries = {
 }
 
 [node name="Player" parent="." instance=ExtResource("2_v3rks")]
+speed = 350
+
+[node name="Titles" parent="." instance=ExtResource("10_eqayr")]
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -181,8 +182,8 @@ stream = ExtResource("15_ir22x")
 stream = ExtResource("16_1jy7k")
 
 [connection signal="time_up" from="." to="." method="_on_time_up"]
-[connection signal="titles_end" from="Titles" to="." method="_on_titles_titles_end"]
 [connection signal="vomit" from="Player" to="." method="_on_player_vomit"]
+[connection signal="titles_end" from="Titles" to="." method="_on_titles_titles_end"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
 [connection signal="finished" from="Victory" to="." method="_on_victory_finished"]
