@@ -7,13 +7,13 @@ signal time_up
 @export var ghost_scene : PackedScene
 @export var puke_scene : PackedScene
 @export var poison_scene : PackedScene
-@export var playtime = 2
+@export var playtime = 20
 
 var time_left = playtime
 var chance_to_survive = 50
 var screensize = Vector2.ZERO
-var margin_w = 160
-var margin_h = 80
+var margin_w = 170
+#var margin_h = 80
 
 var margin_top = 80
 var margin_bottom = 100
@@ -62,6 +62,7 @@ func setup():
 	spawn_particles(randi_range(1, 6))
 	$Player.rec_path = true
 	$Player.can_move = true
+	$Player.reset_path()
 	$MusicGame.play()
 
 func _on_collected():
@@ -91,6 +92,7 @@ func spawn_particles(number):
 		p.collected.connect(self._on_collected)
 		call_deferred("add_child", p)
 
+
 func spawn_box():
 	var b = box_scene.instantiate()
 	b.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
@@ -98,6 +100,7 @@ func spawn_box():
 	b.position.y = clamp(b.position.y, margin_top, screensize.y - margin_bottom)
 	b.box_used.connect(self._on_box_used)
 	$BoxBackground.call_deferred("add_sibling", b)
+
 
 func spawn_ghost():
 	var g = ghost_scene.instantiate()

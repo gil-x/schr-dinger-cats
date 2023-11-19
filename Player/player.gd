@@ -44,8 +44,8 @@ func _ready():
 
 func _process(delta):
 	if can_move:
-		var margin_w = 160
-		var margin_h = 80
+		var margin_w = 170
+#		var margin_h = 80
 		var margin_top = 80
 		var margin_bottom = 100
 		velocity = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
