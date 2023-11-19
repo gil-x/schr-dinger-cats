@@ -11,11 +11,14 @@ func _input(event):
 func show_counters():
 	$MarginContainer.show()
 	$MarginContainer2.show()
+	$MarginContainer3.show()
 	$MarginContainer/AnimationPlayer.play("fade_in")
 	$MarginContainer2/AnimationPlayer.play("fade_in")
+	$MarginContainer3/AnimationPlayer.play("fade_in")
 
 func hide_counters():
 	$MarginContainer2.hide()
+	$MarginContainer3.hide()
 	$MarginContainer/AnimationPlayer.play("fade_out")
 
 func update_time(value):
@@ -28,7 +31,7 @@ func update_percent(value):
 	if value < 0:
 		$MarginContainer/Percent.text = "00%"
 	elif value >= 100:
-		$MarginContainer/Percent.text = "100%"
+		$MarginContainer/Percent.text = "99%"
 	else:
 		$MarginContainer/Percent.text = "%0*d" % [2, value] + "%"
 

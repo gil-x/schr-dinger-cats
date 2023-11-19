@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bld6g607ryhgx"]
+[gd_scene load_steps=15 format=3 uid="uid://bld6g607ryhgx"]
 
 [ext_resource type="Script" path="res://HUD/HUD.gd" id="1_2h60d"]
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="2_328x6"]
-[ext_resource type="Texture2D" uid="uid://ivcnx35iba66" path="res://assets/poison.png" id="3_8xt85"]
+[ext_resource type="Texture2D" uid="uid://c3ogjkp3i6tfu" path="res://assets/cat_head.png" id="3_n2tlq"]
+[ext_resource type="Texture2D" uid="uid://twle6o4ptcet" path="res://assets/timer.png" id="4_jpdgh"]
 
 [sub_resource type="Animation" id="Animation_l2y15"]
 length = 0.001
@@ -142,7 +143,7 @@ offset_top = -46.5
 offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
@@ -192,21 +193,50 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
+size_flags_horizontal = 0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_bottom = 0
 
-[node name="Poison" type="Sprite2D" parent="MarginContainer2"]
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("3_8xt85")
-hframes = 4
+[node name="CatHead" type="Sprite2D" parent="MarginContainer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_n2tlq")
+hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer2/Poison"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer2/CatHead"]
 autoplay = "bubbles"
 libraries = {
 "": SubResource("AnimationLibrary_lj7n8")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer2"]
+libraries = {
+"": SubResource("AnimationLibrary_hsr5w")
+}
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_right = 100.0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="HourGlass" type="Sprite2D" parent="MarginContainer3"]
+position = Vector2(39, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_jpdgh")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer3/HourGlass"]
+autoplay = "bubbles"
+libraries = {
+"": SubResource("AnimationLibrary_lj7n8")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer3"]
 libraries = {
 "": SubResource("AnimationLibrary_hsr5w")
 }

@@ -133,7 +133,6 @@ libraries = {
 }
 
 [node name="Player" parent="." instance=ExtResource("2_v3rks")]
-speed = 350
 
 [node name="Titles" parent="." instance=ExtResource("10_eqayr")]
 

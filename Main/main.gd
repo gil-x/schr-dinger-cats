@@ -99,7 +99,7 @@ func spawn_ghost():
 	g.ghost_touched.connect(self._on_ghost_touched)
 	$Player.reset_path()
 	spawn_particles(3)
-	chance_to_survive += randi_range(1, 10)
+	chance_to_survive += randi_range(3, 8)
 	if chance_to_survive > 80:
 		spawn_poison()
 	$HUD.update_percent(chance_to_survive)
@@ -109,11 +109,11 @@ func _on_box_used():
 	spawn_ghost()
 
 func _on_ghost_touched():
-	chance_to_survive -= randi_range(1, 5)
+	chance_to_survive -= randi_range(2, 6)
 	$HUD.update_percent(chance_to_survive)
 
 func _on_poison():
-	chance_to_survive -= randi_range(20, 50)
+	chance_to_survive -= randi_range(30, 55)
 	$HUD.update_percent(chance_to_survive)
 
 func _on_timer_timeout():
