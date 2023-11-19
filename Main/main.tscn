@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cfy6wcvf8wcwv" path="res://Box/box.tscn" id="5_rtns4"]
 [ext_resource type="PackedScene" uid="uid://k2lu05ecex6y" path="res://Poison/poison.tscn" id="6_i6qou"]
 [ext_resource type="PackedScene" uid="uid://bld6g607ryhgx" path="res://HUD/hud.tscn" id="7_1hmjg"]
-[ext_resource type="Texture2D" uid="uid://c5n1v0xohhyxh" path="res://assets/box2.png" id="7_67cws"]
 [ext_resource type="AudioStream" uid="uid://yaovftkxoacn" path="res://assets/temp_music.ogg" id="8_7gswy"]
+[ext_resource type="Texture2D" uid="uid://bochacahsbud" path="res://assets/box_n2.png" id="8_7rptg"]
 [ext_resource type="Texture2D" uid="uid://cmwii3p3b5t7t" path="res://assets/temp_lab.png" id="9_kfjyw"]
 [ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="10_bep3t"]
 [ext_resource type="PackedScene" uid="uid://c8kyq5h22yhi3" path="res://Titles/titles.tscn" id="10_eqayr"]
@@ -45,6 +45,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_jq8lp"]
 resource_name = "grow_down"
@@ -59,6 +71,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [12.5664, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ll36y"]
@@ -86,6 +110,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 0.0281641),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.5664]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yfcso"]
@@ -117,15 +153,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 200.0
+offset_left = -220.0
+offset_top = -220.0
+offset_right = 220.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(200, 200)
+pivot_offset = Vector2(220, 220)
 size_flags_vertical = 4
-texture = ExtResource("7_67cws")
+texture = ExtResource("8_7rptg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BoxBackground"]
 libraries = {

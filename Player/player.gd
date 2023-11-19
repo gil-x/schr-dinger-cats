@@ -46,10 +46,12 @@ func _process(delta):
 	if can_move:
 		var margin_w = 160
 		var margin_h = 80
+		var margin_top = 80
+		var margin_bottom = 100
 		velocity = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		position += velocity * speed * delta
 		position.x = clamp(position.x, margin_w, screensize.x - margin_w)
-		position.y = clamp(position.y, margin_h, screensize.y - margin_h)
+		position.y = clamp(position.y, margin_top, screensize.y - margin_bottom)
 		if velocity.y < 0:
 			$AnimatedSprite2D.animation = "back"
 		elif velocity.y > 0:

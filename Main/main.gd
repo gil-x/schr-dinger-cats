@@ -15,6 +15,10 @@ var screensize = Vector2.ZERO
 var margin_w = 160
 var margin_h = 80
 
+var margin_top = 80
+var margin_bottom = 100
+
+
 func _ready():
 	screensize = get_viewport().get_visible_rect().size
 	randomize()
@@ -72,7 +76,7 @@ func spawn_poison():
 	var p = poison_scene.instantiate()
 	p.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
 	p.position.x = clamp(p.position.x, margin_w, screensize.x - margin_w)
-	p.position.y = clamp(p.position.y, margin_h, screensize.y - margin_h)
+	p.position.y = clamp(p.position.y, margin_top, screensize.y - margin_bottom)
 	p.poison.connect(self._on_poison)
 	call_deferred("add_child", p)
 
@@ -81,7 +85,7 @@ func spawn_particles(number):
 		var p = particle_scene.instantiate()
 		p.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
 		p.position.x = clamp(p.position.x, margin_w, screensize.x - margin_w)
-		p.position.y = clamp(p.position.y, margin_h, screensize.y - margin_h)
+		p.position.y = clamp(p.position.y, margin_top, screensize.y - margin_bottom)
 		p.collected.connect(self._on_collected)
 		call_deferred("add_child", p)
 
@@ -89,7 +93,7 @@ func spawn_box():
 	var b = box_scene.instantiate()
 	b.position = Vector2(randi_range(0, screensize.x), randi_range(0, screensize.y))
 	b.position.x = clamp(b.position.x, margin_w, screensize.x - margin_w)
-	b.position.y = clamp(b.position.y, margin_h, screensize.y - margin_h)
+	b.position.y = clamp(b.position.y, margin_top, screensize.y - margin_bottom)
 	b.box_used.connect(self._on_box_used)
 	$BoxBackground.call_deferred("add_sibling", b)
 
