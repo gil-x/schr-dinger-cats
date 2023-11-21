@@ -71,7 +71,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 3.0,
+"duration": 1.0,
 "texture": ExtResource("10_udxtj")
 }, {
 "duration": 1.0,
@@ -309,8 +309,9 @@ script = ExtResource("1_26ve0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ccp60")
-animation = &"dead"
+animation = &"alive"
 autoplay = "idle"
+frame_progress = 0.394222
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)
