@@ -21,6 +21,14 @@ func hide_counters():
 	$MarginContainer3.hide()
 	$MarginContainer/AnimationPlayer.play("fade_out")
 
+func show_buttons():
+	$StartButton.show()
+	$CreditsToogle.show()
+
+func hide_buttons():
+	$StartButton.hide()
+	$CreditsToogle.hide()
+
 func update_time(value):
 	if value >= 99:
 		$MarginContainer/Time.text = "99"
@@ -39,3 +47,13 @@ func _on_start_button_pressed():
 	emit_signal("start_game")
 	show_counters()
 	$StartButton.text = "PLAY AGAIN"
+
+func _on_credit_toogle_pressed():
+	if $Credits.visible:
+		$Credits.visible = false
+		$StartButton.visible = true
+		$CreditToogle/Button.text = "Credits"
+	else:
+		$Credits.visible = true
+		$StartButton.visible = false
+		$CreditToogle/Button.text = "Close"

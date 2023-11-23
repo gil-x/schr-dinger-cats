@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfm2teqnew8y0"]
+
+[ext_resource type="FontFile" uid="uid://cbno3o4h64jmn" path="res://assets/Oswald-VariableFont_wght.ttf" id="1_ojqcw"]
+[ext_resource type="FontFile" uid="uid://dxf0acq74jtt5" path="res://assets/Lato-Bold.ttf" id="2_4jwii"]
+
+[sub_resource type="Theme" id="Theme_j57ri"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1ekm"]
+bg_color = Color(0, 0, 0, 0.705882)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 15.0
+expand_margin_top = 10.0
+expand_margin_right = 15.0
+expand_margin_bottom = 10.0
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterBox" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -60.0
+offset_right = 62.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="CenterBox"]
+layout_mode = 2
+theme = SubResource("Theme_j57ri")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w1ekm")
+
+[node name="TextContainer" type="VBoxContainer" parent="CenterBox"]
+layout_mode = 2
+
+[node name="H1" type="Label" parent="CenterBox/TextContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("1_ojqcw")
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="programming" type="VBoxContainer" parent="CenterBox/TextContainer"]
+layout_mode = 2
+
+[node name="H2" type="Label" parent="CenterBox/TextContainer/programming"]
+layout_mode = 2
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("1_ojqcw")
+theme_override_font_sizes/font_size = 20
+text = "Programming"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Content" type="Label" parent="CenterBox/TextContainer/programming"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4jwii")
+theme_override_font_sizes/font_size = 12
+text = "Gino Ladowitch
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="graphics" type="VBoxContainer" parent="CenterBox/TextContainer"]
+layout_mode = 2
+
+[node name="H2" type="Label" parent="CenterBox/TextContainer/graphics"]
+layout_mode = 2
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("1_ojqcw")
+theme_override_font_sizes/font_size = 20
+text = "Graphics and animations"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Content" type="Label" parent="CenterBox/TextContainer/graphics"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4jwii")
+theme_override_font_sizes/font_size = 12
+text = "Adrien Kara"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music" type="VBoxContainer" parent="CenterBox/TextContainer"]
+layout_mode = 2
+
+[node name="H2" type="Label" parent="CenterBox/TextContainer/music"]
+layout_mode = 2
+theme_override_constants/line_spacing = 5
+theme_override_fonts/font = ExtResource("1_ojqcw")
+theme_override_font_sizes/font_size = 20
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Content" type="Label" parent="CenterBox/TextContainer/music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4jwii")
+theme_override_font_sizes/font_size = 12
+text = "Section31"
+horizontal_alignment = 1
+vertical_alignment = 1
